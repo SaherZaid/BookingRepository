@@ -19,4 +19,4 @@ app.MapGet("/bookings", async (IBookingRepository repo) =>
     return await repo.GetAllAsync();
 });
 
-app.Run("http://0.0.0.0:7050");
+app.Run("http://0.0.0.0:6050");
