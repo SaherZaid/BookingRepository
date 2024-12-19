@@ -14,7 +14,7 @@ builder.Services.AddHostedService<RabbitMqConsumerService>();
 
 var app = builder.Build();
 
-app.MapGet("/Booking", async (IBookingRepository repo) =>
+app.MapGet("/bookings", async (IBookingRepository repo) =>
 {
     return await repo.GetAllAsync();
 });
