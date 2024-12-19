@@ -1,5 +1,7 @@
-﻿using BookingRepository.Entities;
+﻿using BookingRepository.DbContext;
+using BookingRepository.Entities;
 using MongoDB.Driver;
+using System.Net.Sockets;
 
 namespace BookingRepository.Repository;
 
@@ -7,9 +9,9 @@ public class BookingRepository : IBookingRepository
 {
     private readonly IMongoCollection<Booking> _collection;
 
-    public BookingRepository(IMongoDatabase database)
+    public BookingRepository(IMongoDbContext context)
     {
-        _collection = database.GetCollection<Booking>("Bookings");
+        _collection = context.GetCollection<Booking>("Bookings");
     }
 
     public async Task<Booking> GetByIdAsync(string id)
